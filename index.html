@@ -88,14 +88,24 @@
     <div>
       <h2 class="title"><a href="/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/">Nodejs安装 & Hexo搭建及使用 & Git安装及使用</a></h2>
       <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2023-10-14</span>
-      <p><h1 id="NodeJS-安装-环境搭建"><a href="#NodeJS-安装-环境搭建" class="headerlink" title="NodeJS 安装 &amp; 环境搭建"></a>NodeJS 安装 &amp; 环境搭建</h1><p><strong>NodeJS</strong> 的安装说实在搞得头大，总是莫名其妙的出现各种问题，像 cnpm 系统不识别之类的，总之就是非常头大，不过还好，总算是找到了一个没有任何报错的安装方法。</p>
-<h4 id="下载-NodeJS"><a href="#下载-NodeJS" class="headerlink" title="下载 NodeJS"></a>下载 NodeJS</h4><p><a target="_blank" rel="noopener" href="https://nodejs.cn/download/">NodeJS 官网</a> 下载对应版本，这里使用的是Windows-64安装包</p>
+      <p><h1 id="NodeJS-安装-环境搭建"><a href="#NodeJS-安装-环境搭建" class="headerlink" title="NodeJS 安装 &amp; 环境搭建"></a>NodeJS 安装 &amp; 环境搭建</h1><blockquote>
+<p><strong>NodeJS</strong> 的安装说实在搞得头大，总是莫名其妙的出现各种问题，像 cnpm 系统不识别之类的，总之就是非常头大，不过还好，总算是找到了一个没有任何报错的安装方法→ <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19F411t7zX/?vd_source=b4e7a930b6168115887cecaf26f330e6">BV19F411t7zX</a>。</p>
+</blockquote>
+<h4 id="下载-NodeJS"><a href="#下载-NodeJS" class="headerlink" title="下载 NodeJS"></a>下载 NodeJS</h4><p><a target="_blank" rel="noopener" href="https://nodejs.cn/download/">NodeJS 官网</a> 下载对应版本，这里使用的是 Windows-64 安装包</p>
 <p><a target="_blank" rel="noopener" href="https://postimg.cc/rR8XLGWr"><img src="https://i.postimg.cc/SR9yCDxD/image.png" alt="image.png"></a></p>
-<p>解压后新建两个文件夹，cache用来放缓存文件，global用来放系统全局文件</p>
+<p>解压后新建两个文件夹，cache 用来放缓存文件，global 用来放系统全局文件</p>
 <p><a target="_blank" rel="noopener" href="https://postimg.cc/MMpm2vHG"><img src="https://i.postimg.cc/1tpCFFZD/image.png" alt="image.png"></a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_cache</span><br><span class="line">node_global</span><br></pre></td></tr></table></figure>
 
-</p>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>在<strong>系统变量</strong>中新建一个  <code>NODE_HOME</code></p>
+<p><a target="_blank" rel="noopener" href="https://postimg.cc/YvJR3n3D"><img src="https://i.postimg.cc/R00Yv2nm/image.png" alt="image.png"></a></p>
+<p>然后再从<strong>系统变量</strong>的 <code>PATH</code> 中添加下面三段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%NODE_HOME%</span><br><span class="line">%NODE_HOME%\node_cache</span><br><span class="line">%NODE_HOME%\node_global</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://postimg.cc/z3cgKLp0"><img src="https://i.postimg.cc/28z7phWR/image.png" alt="image.png"></a></p>
+<p>以上工作完成后，再终端中输入 <code>node -v</code>、<code>npm -v</code> 测试环境变量是否配置成功</p>
+<p><a target="_blank" rel="noopener" href="https://postimg.cc/VSwc3PSf"><img src="https://i.postimg.cc/KYkv3ZxM/image.png" alt="image.png"></a></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4></p>
       <div class="post-button"><a class="btn" href="/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
     </div>
   </div>
