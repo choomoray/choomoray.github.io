@@ -112,3 +112,6 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 把下载好的主题解压到 Theme 文件夹，然后在 `-config.yml` 里把 Theme 替换成需要修改的主题文件夹名就好了
 
+
+
+修改测试
