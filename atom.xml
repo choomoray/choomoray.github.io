@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-14T11:56:07.119Z</updated>
+  <updated>2023-10-14T12:36:23.188Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nodejs安装 &amp; Hexo搭建及使用</title>
+    <link href="http://example.com/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&amp;%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&amp;%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/</id>
+    <published>2023-10-14T12:29:35.000Z</published>
+    <updated>2023-10-14T12:36:23.188Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="NodeJS安装"><a href="#NodeJS安装" class="headerlink" title="NodeJS安装"></a>NodeJS安装</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;NodeJS安装&quot;&gt;&lt;a href=&quot;#NodeJS安装&quot; class=&quot;headerlink&quot; title=&quot;NodeJS安装&quot;&gt;&lt;/a&gt;NodeJS安装&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="软件安装" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+    <category term="环境配置" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="使用教程" scheme="http://example.com/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
