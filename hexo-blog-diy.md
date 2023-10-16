@@ -13,6 +13,7 @@ tags:
 categories: 
   - 笔记
 cover: https://i.postimg.cc/XJ3RfLz8/cat-8239223-1280.webp
+
 ---
 
 
@@ -35,11 +36,11 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 [NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
 
-![NodeJS官网下载安装包](静态博客Hexo的搭建与使用/1.png)
+![NodeJS官网下载对应版本](../images/2023/hexo_blog_diy/1.png)
 
 解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
 
-[![image.png](https://i.postimg.cc/ZnGBBPvm/image.png)](https://postimg.cc/1VK5bqK7)
+![](../images/2023/hexo_blog_diy/2.png)
 
 
 
@@ -47,7 +48,7 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 在**系统变量**中新建一个  `NODE_HOME`
 
-[![image.png](https://i.postimg.cc/R00Yv2nm/image.png)](https://postimg.cc/YvJR3n3D)
+![](../images/2023/hexo_blog_diy/3.png)
 
 然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -193,7 +194,7 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 在博客根目录的`主配置文件`里修改网站的基础资料，标题、副标题、个人资料等
 
-[![image.png](https://i.postimg.cc/63vMzb3z/image.png)](https://postimg.cc/5Yf5238F)
+![](../images/2023/hexo_blog_diy/4.png)
 
 ### 头像
 
@@ -224,7 +225,7 @@ nav:
 
 > `menu` 只是控制是否显示，**标签、分类**需要单独创建 Page 来显示，具体操作在[功能补充页](#jump_功能补充页) 
 
-[![image.png](https://i.postimg.cc/nLw91D3R/image.png)](https://postimg.cc/d7r0sLPr)
+![](../images/2023/hexo_blog_diy/5.png)
 
 
 
@@ -279,7 +280,7 @@ hexo new page tags
 hexo new page categories
 ```
 
-[![image.png](https://i.postimg.cc/VLXgh2Kz/image.png)](https://postimg.cc/ZCK6BskQ)
+![](../images/2023/hexo_blog_diy/6.png)
 
 
 
@@ -340,9 +341,7 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-[![image.png](https://i.postimg.cc/vT3tmJTp/image.png)](https://postimg.cc/kRRb1hxc)
-
-
+![](../images/2023/hexo_blog_diy/8.png)
 
 ----
 
