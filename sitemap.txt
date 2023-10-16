@@ -1,7 +1,8 @@
+https://choomoray.github.io/2023/10/14/51_STC89C52RC_Study/
+https://choomoray.github.io/2023/10/14/hexo-blog-diy/
 https://choomoray.github.io/diary/index.html
 https://choomoray.github.io/tags/index.html
 https://choomoray.github.io/categories/index.html
-https://choomoray.github.io/2023/10/14/hexo-blog-diy/
 https://choomoray.github.io/
 https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
@@ -10,4 +11,7 @@ https://choomoray.github.io/tags/Hexo/
 https://choomoray.github.io/tags/NodeJS/
 https://choomoray.github.io/tags/Git/
 https://choomoray.github.io/tags/Tips/
+https://choomoray.github.io/tags/%E5%85%A5%E9%97%A8/
+https://choomoray.github.io/tags/51/
 https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/
+https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/
