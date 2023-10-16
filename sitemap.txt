@@ -1,9 +1,9 @@
+https://choomoray.github.io/tags/index.html
+https://choomoray.github.io/categories/index.html
 https://choomoray.github.io/2023/10/16/Hexo-Butterfly-%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96-%E5%8A%9F%E8%83%BD%E8%A1%A5%E5%85%85/
 https://choomoray.github.io/2023/10/14/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/
 https://choomoray.github.io/2023/10/16/%E5%8A%A0%E5%AF%86%E6%96%87%E6%A1%A3/
 https://choomoray.github.io/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/
-https://choomoray.github.io/tags/index.html
-https://choomoray.github.io/categories/index.html
 https://choomoray.github.io/
 https://choomoray.github.io/tags/Hexo/
 https://choomoray.github.io/tags/%E4%B8%BB%E9%A2%98/
@@ -12,6 +12,6 @@ https://choomoray.github.io/tags/%E5%85%A5%E9%97%A8/
 https://choomoray.github.io/tags/51/
 https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
-https://choomoray.github.io/categories/%E5%AD%A6%E4%B9%A0/
 https://choomoray.github.io/categories/%E6%97%A5%E8%AE%B0/
+https://choomoray.github.io/categories/%E5%AD%A6%E4%B9%A0/
 https://choomoray.github.io/categories/%E5%AE%89%E8%A3%85/
