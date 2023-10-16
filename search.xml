@@ -42,7 +42,9 @@
       
       <categories>
           
-          <category> 安装 </category>
+          <category> 笔记 </category>
+          
+          <category> 总结 </category>
           
       </categories>
       
@@ -52,6 +54,16 @@
             <tag> 安装配置 </tag>
             
             <tag> 使用教程 </tag>
+            
+            <tag> Blog </tag>
+            
+            <tag> Tips </tag>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NodeJS </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
