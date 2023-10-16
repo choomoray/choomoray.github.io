@@ -1,7 +1,7 @@
 ---
 title: 静态博客 Hexo 的搭建与使用
 date: 2023-10-14
-updated: 2023-10-16
+updated: 2023-10-17
 tags: 
   - 安装配置
   - 使用教程
@@ -12,7 +12,7 @@ tags:
   - Tips
 categories: 
   - 笔记
-cover: ../images/2023/hexo_blog_diy/cover.webp
+cover: ../images/2023/静态博客Hexo安装使用教程/封面.webp
 ---
 
 
@@ -35,7 +35,7 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 [NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
 
-![NodeJS官网下载对应版本](../images/2023/hexo_blog_diy/1.png)
+![NodeJS官网下载对应版本](../images/2023/静态博客Hexo安装使用教程/NodeJS版本选择.png)
 
 解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
 
@@ -45,7 +45,7 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 在**系统变量**中新建一个  `NODE_HOME`
 
-![](../images/2023/hexo_blog_diy/2.png)
+![](../images/2023/静态博客Hexo安装使用教程/配置环境变量.png)
 
 然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -353,7 +353,7 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-![](../images/2023/hexo_blog_diy/3.png)
+![](../images/2023/静态博客Hexo安装使用教程/访问内容需要密码.png)
 
 
 
