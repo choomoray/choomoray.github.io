@@ -35,7 +35,7 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 [NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
 
-[![image.png](https://i.postimg.cc/SR9yCDxD/image.png)](https://postimg.cc/rR8XLGWr)
+![NodeJS官网下载安装包](静态博客Hexo的搭建与使用/1.png)
 
 解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
 
