@@ -12,8 +12,7 @@ tags:
   - Tips
 categories: 
   - 笔记
-cover: https://i.postimg.cc/XJ3RfLz8/cat-8239223-1280.webp
-
+cover: ../images/2023/hexo_blog_diy/cover.webp
 ---
 
 
@@ -40,15 +39,13 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
 
-![](../images/2023/hexo_blog_diy/2.png)
-
 
 
 ## 配置环境变量
 
 在**系统变量**中新建一个  `NODE_HOME`
 
-![](../images/2023/hexo_blog_diy/3.png)
+![](../images/2023/hexo_blog_diy/2.png)
 
 然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -57,8 +54,6 @@ NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 %NODE_HOME%\node_cache
 %NODE_HOME%\node_global
 ```
-
-[![image.png](https://i.postimg.cc/28z7phWR/image.png)](https://postimg.cc/z3cgKLp0)
 
 以上工作完成后，再终端中输入 `node -v`、`npm -v` 测试环境变量是否配置成功
 
@@ -194,7 +189,18 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 在博客根目录的`主配置文件`里修改网站的基础资料，标题、副标题、个人资料等
 
-![](../images/2023/hexo_blog_diy/4.png)
+```yaml
+# Site
+title: CHOOMORAY
+subtitle: ''
+description: ''
+keywords:
+author: choomoray
+language: zh-CN
+timezone: ''
+```
+
+
 
 ### 头像
 
@@ -225,7 +231,15 @@ nav:
 
 > `menu` 只是控制是否显示，**标签、分类**需要单独创建 Page 来显示，具体操作在[功能补充页](#jump_功能补充页) 
 
-![](../images/2023/hexo_blog_diy/5.png)
+```yaml
+menu:	# Menu 目录
+  首页: / || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  ME: /diary/ || fas fa-link
+  ...
+```
 
 
 
@@ -279,8 +293,6 @@ cover: https://cdn.pixabay.com/photo/2023/09/07/14/26/cat-8239223_1280.png
 hexo new page tags
 hexo new page categories
 ```
-
-![](../images/2023/hexo_blog_diy/6.png)
 
 
 
@@ -341,7 +353,27 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-![](../images/2023/hexo_blog_diy/8.png)
+![](../images/2023/hexo_blog_diy/3.png)
+
+
+
+## 插入本地图片
+
+> [官方文档](https://hexo.io/zh-cn/docs/asset-folders)简单易懂，要比网上一个答案到处抄来的靠谱（花了好几个小时也没成功）。总结一下：
+
+首先要打开`主配置文档`中的`允许使用本地静态资源`：
+
+```yaml
+post_asset_folder: true
+```
+
+然后在`source`文件夹下创建`images`文件，把图片放入images文件夹就可以了，引用格式如下：
+
+```yaml
+![图片描述](../images/....../1.png)
+```
+
+需要注意的是：图片路径必须使用`/`
 
 ----
 
