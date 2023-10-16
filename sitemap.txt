@@ -6,12 +6,12 @@ https://choomoray.github.io/2023/10/16/Hexo-Butterfly-%E4%B8%BB%E9%A2%98%E7%BE%8
 https://choomoray.github.io/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/
 https://choomoray.github.io/
 https://choomoray.github.io/tags/Hexo/
+https://choomoray.github.io/tags/%E4%B8%BB%E9%A2%98/
+https://choomoray.github.io/tags/DIY/
 https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://choomoray.github.io/tags/%E5%85%A5%E9%97%A8/
 https://choomoray.github.io/tags/51/
-https://choomoray.github.io/tags/%E4%B8%BB%E9%A2%98/
-https://choomoray.github.io/tags/DIY/
-https://choomoray.github.io/categories/%E6%97%A5%E8%AE%B0/
 https://choomoray.github.io/categories/%E5%AE%89%E8%A3%85/
+https://choomoray.github.io/categories/%E6%97%A5%E8%AE%B0/
 https://choomoray.github.io/categories/%E5%AD%A6%E4%B9%A0/
