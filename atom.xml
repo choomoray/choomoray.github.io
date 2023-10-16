@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog</title>
+  <title>CHOOMORAY</title>
   
   
   <link href="https://choomoray.github.io/atom.xml" rel="self"/>
@@ -59,11 +59,11 @@
     
     
     
-    <category term="51" scheme="https://choomoray.github.io/tags/51/"/>
-    
     <category term="学习" scheme="https://choomoray.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="基础" scheme="https://choomoray.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="51" scheme="https://choomoray.github.io/tags/51/"/>
     
   </entry>
   
