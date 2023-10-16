@@ -1,12 +1,10 @@
+https://choomoray.github.io/diary/index.html
 https://choomoray.github.io/2023/10/16/OpenHarmony%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/
 https://choomoray.github.io/2023/10/14/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/
 https://choomoray.github.io/tags/index.html
 https://choomoray.github.io/categories/index.html
 https://choomoray.github.io/2023/10/14/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%20Hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/
 https://choomoray.github.io/
-https://choomoray.github.io/tags/%E5%85%A5%E9%97%A8/
-https://choomoray.github.io/tags/51/
-https://choomoray.github.io/tags/OpenHarmony/
 https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://choomoray.github.io/tags/Blog/
@@ -14,5 +12,8 @@ https://choomoray.github.io/tags/Hexo/
 https://choomoray.github.io/tags/NodeJS/
 https://choomoray.github.io/tags/Git/
 https://choomoray.github.io/tags/Tips/
+https://choomoray.github.io/tags/OpenHarmony/
+https://choomoray.github.io/tags/%E5%85%A5%E9%97%A8/
+https://choomoray.github.io/tags/51/
 https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/
 https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/
