@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://choomoray.github.io/2023/10/14/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://choomoray.github.io/2023/10/16/%E5%8A%A0%E5%AF%86%E6%96%87%E6%A1%A3/</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>https://choomoray.github.io/2023/10/14/Nodejs%E5%AE%89%E8%A3%85%20&%20Hexo%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2023-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/2023/10/14/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2023-10-16</lastmod>
     
@@ -56,14 +65,7 @@
 
   
   <url>
-    <loc>https://choomoray.github.io/tags/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2023-10-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/51/</loc>
+    <loc>https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2023-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -77,7 +79,14 @@
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://choomoray.github.io/tags/%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2023-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/51/</loc>
     <lastmod>2023-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -100,13 +109,6 @@
 
   
   <url>
-    <loc>https://choomoray.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-10-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://choomoray.github.io/categories/%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2023-10-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -114,7 +116,21 @@
   </url>
   
   <url>
+    <loc>https://choomoray.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://choomoray.github.io/categories/DIY/</loc>
+    <lastmod>2023-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
