@@ -1,8 +1,12 @@
 ---
 title: Nodejs安装 & Hexo搭建及使用 & Git安装及使用
 date: 2023-10-14 20:29:35
-tags: [软件安装,环境配置,使用教程]
+tags: [安装配置, 使用教程]
+categories: 安装
+cover: https://storage.sangniao.com/uploads/article/000/00/00/13/9eae3436aeee4d318222b09eaafb2489.jpeg
 ---
+
+
 
 # NodeJS 安装 & 环境搭建
 
@@ -108,19 +112,11 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 [![image.png](https://i.postimg.cc/1RrDbQcm/image.png)](https://postimg.cc/144gNbj2)
 
-### 修改主题
 
-把下载好的主题解压到 Theme 文件夹，然后在 `-config.yml` 里把 Theme 替换成需要修改的主题文件夹名就好了
 
 # Git 使用
 
+> Git的使用在以后用到的时候再进行更新，目前仅为上传不同名文件夹内容到远程仓库的不同分支中，方法也非常简单，使用Github桌面端就可以进行操作，把仓库克隆到要上传的文件夹父目录，克隆完成后把名字一改再重新寻址就可以了
 
-
-
-
-克隆分支到重命名文件夹
-
-```
-git clone -b backup < Github URL > <重命名文件夹>
-```
+----
 
