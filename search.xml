@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>与或非</title>
+      <link href="/2023/10/17/%E4%B8%8E%E6%88%96%E9%9D%9E/"/>
+      <url>/2023/10/17/%E4%B8%8E%E6%88%96%E9%9D%9E/</url>
+      
+        <content type="html"><![CDATA[<h1 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h1><table><thead><tr><th align="center"></th><th align="left">运算</th><th align="left">用法</th></tr></thead><tbody><tr><td align="center">&amp;</td><td align="left">两数同为 1，结果为 1</td><td align="left">data&amp;0x01：验证数据某一位是否为1</td></tr><tr><td align="center">|</td><td align="left">两数有一个为 1，结果为 1</td><td align="left">data|0x01： 对数据某一位置为1</td></tr><tr><td align="center">~</td><td align="left">两数为 异，结果为 1</td><td align="left"></td></tr></tbody></table><h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><p>使用<code>与、或、非</code>运算可以很大程度上简化代码</p><ul><li><blockquote><p><code>&amp;</code>：<strong>低四位清零</strong>，高四位保持不变</p><p>1010 0011 &amp; 1111 0000 &#x3D; 1010 0000</p></blockquote></li><li><blockquote><p><code>|</code>：<strong>第一位置为1</strong>，高四位不变</p><p>1010 0011 | 0000 0001 &#x3D; 1010 0001</p></blockquote></li></ul><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Tips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>51单片机STC82C52RC入门学习</title>
       <link href="/2023/10/14/51%20%E5%8D%95%E7%89%87%E6%9C%BA%20STC82C52RC%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"/>
       <url>/2023/10/14/51%20%E5%8D%95%E7%89%87%E6%9C%BA%20STC82C52RC%20%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</url>
