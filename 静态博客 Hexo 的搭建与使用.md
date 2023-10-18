@@ -182,35 +182,39 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 
 > 主题美化可以参考作者写的[详细文档](https://butterfly.js.org/)
+>
+> 这里就根据我自己的个人喜好来进行优化，大致分为几大块：
+
+![网站基本信息](../images/2023/静态博客Hexo安装使用教程/网站基本信息.png)
+
+![主页基本信息](../images/2023/静态博客Hexo安装使用教程/主页基本信息.png)
+
+![文章页基本信息](../images/2023/静态博客Hexo安装使用教程/文章页基本信息.png)
 
 
 
 ## 网站基本信息
 
-在博客根目录的`主配置文件`里修改网站的基础资料，标题、副标题、个人资料等
+首先是网站的基本信息，把网站标题、副标题等修改为自己的，在博客根目录的`主配置文件`里修改：
 
 ```yaml
 # Site
-title: CHOOMORAY
-subtitle: ''
+title: CHOOMORAY	# 网站标题
+subtitle: ''	# 网站副标题
 description: ''
 keywords:
-author: choomoray
+author: choomoray # 作者名
 language: zh-CN
 timezone: ''
 ```
 
 
 
-### 头像
+### 网站图标ICON
 
-修改 `主配置文件`
 
-````yaml
-avatar:
-  img: /img/avatar.png	# 图片目录
-  effect: true		# 头像会一直转圈
-````
+
+### 仿键盘敲入文字效果
 
 
 
@@ -257,15 +261,29 @@ menu:	# Menu 目录
 
 
 
-## 代码块
-
-> 主题提供了几种代码块可供选择，修改关键词 `highlight_theme`
->
-> 还包括代码块的复制（ `highlight_copy` ）、展开（ `highlight_shrink` ）、换行（`code_word_wrap`  ）以及高度限制（ `highlight_height_limit` ）
+## 背景
 
 
 
-## 内容
+
+
+## 个人信息
+
+
+
+### 头像
+
+修改 `主配置文件`
+
+````yaml
+avatar:
+  img: /img/avatar.png	# 图片目录
+  effect: true		# 头像会一直转圈
+````
+
+
+
+## 文章
 
 ### 文章封面
 
@@ -278,6 +296,14 @@ tags: [Hexo, Butterfly]
 categories: DIY
 cover: https://cdn.pixabay.com/photo/2023/09/07/14/26/cat-8239223_1280.png
 ```
+
+
+
+### 代码块
+
+> 主题提供了几种代码块可供选择，修改关键词 `highlight_theme`
+>
+> 还包括代码块的复制（ `highlight_copy` ）、展开（ `highlight_shrink` ）、换行（`code_word_wrap`  ）以及高度限制（ `highlight_height_limit` ）
 
 
 
