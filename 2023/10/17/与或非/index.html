@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>与或非 | CHOOMORAY</title><meta name="author" content="choomoray"><meta name="copyright" content="choomoray"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="运算法则    运算 用法    &amp; 两数同为 1，结果为 1 data&amp;0x01：验证数据某一位是否为1   | 两数有一个为 1，结果为 1 data|0x01： 对数据某一位置为1   ~ 两数为 异，结果为 1    常用方法使用与、或、非运算可以很大程度上简化代码 清零 两数同为1，&amp;的结果才为1，因此任何一个数&amp;0结果为0 1011 1100 &amp;">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>与或非 | CHOOMORAY</title><meta name="author" content="choomoray"><meta name="copyright" content="choomoray"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="运算法则     运算 用法    与 &amp; 同为1，结果为 1，任意0，结果为0 data&amp;0x01：验证数据某一位是否为1   或 | 同为0，结果为0，任意 1，结果为 1 data|0x01： 对数据某一位置为1   非 ! !1&#x3D;0；!0&#x3D;1    异或 ^ 不同为1，相同为0    同或 ⊙ 相同为1，不同为0    Tips：在程序中，一般没有同或运">
 <meta property="og:type" content="article">
 <meta property="og:title" content="与或非">
 <meta property="og:url" content="https://choomoray.github.io/2023/10/17/%E4%B8%8E%E6%88%96%E9%9D%9E/index.html">
 <meta property="og:site_name" content="CHOOMORAY">
-<meta property="og:description" content="运算法则    运算 用法    &amp; 两数同为 1，结果为 1 data&amp;0x01：验证数据某一位是否为1   | 两数有一个为 1，结果为 1 data|0x01： 对数据某一位置为1   ~ 两数为 异，结果为 1    常用方法使用与、或、非运算可以很大程度上简化代码 清零 两数同为1，&amp;的结果才为1，因此任何一个数&amp;0结果为0 1011 1100 &amp;">
+<meta property="og:description" content="运算法则     运算 用法    与 &amp; 同为1，结果为 1，任意0，结果为0 data&amp;0x01：验证数据某一位是否为1   或 | 同为0，结果为0，任意 1，结果为 1 data|0x01： 对数据某一位置为1   非 ! !1&#x3D;0；!0&#x3D;1    异或 ^ 不同为1，相同为0    同或 ⊙ 相同为1，不同为0    Tips：在程序中，一般没有同或运">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://choomoray.github.io/images/2023/%E4%B8%8E%E6%88%96%E9%9D%9E/%E5%B0%81%E9%9D%A2.png">
 <meta property="article:published_time" content="2023-10-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-18T10:16:43.053Z">
+<meta property="article:modified_time" content="2023-10-18T10:34:10.423Z">
 <meta property="article:author" content="choomoray">
 <meta property="article:tag" content="Tips">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-10-18 18:16:43'
+  postUpdate: '2023-10-18 18:34:10'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -154,30 +154,48 @@
       }
       detectApple()
     })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="CHOOMORAY" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-link"></i><span> ME</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../images/2023/%E4%B8%8E%E6%88%96%E9%9D%9E/%E5%B0%81%E9%9D%A2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="CHOOMORAY"><span class="site-name">CHOOMORAY</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-link"></i><span> ME</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">与或非</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T16:00:00.000Z" title="发表于 2023-10-17 00:00:00">2023-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-18T10:16:43.053Z" title="更新于 2023-10-18 18:16:43">2023-10-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="与或非"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h1><table>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-link"></i><span> ME</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../images/2023/%E4%B8%8E%E6%88%96%E9%9D%9E/%E5%B0%81%E9%9D%A2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="CHOOMORAY"><span class="site-name">CHOOMORAY</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-link"></i><span> ME</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">与或非</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T16:00:00.000Z" title="发表于 2023-10-17 00:00:00">2023-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-18T10:34:10.423Z" title="更新于 2023-10-18 18:34:10">2023-10-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="与或非"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h1><table>
 <thead>
 <tr>
+<th align="center"></th>
 <th align="center"></th>
 <th align="left">运算</th>
 <th align="left">用法</th>
 </tr>
 </thead>
 <tbody><tr>
+<td align="center"><strong>与</strong></td>
 <td align="center">&amp;</td>
-<td align="left">两数同为 1，结果为 1</td>
+<td align="left">同为1，结果为 1，任意0，结果为0</td>
 <td align="left">data&amp;0x01：验证数据某一位是否为1</td>
 </tr>
 <tr>
+<td align="center"><strong>或</strong></td>
 <td align="center">|</td>
-<td align="left">两数有一个为 1，结果为 1</td>
+<td align="left">同为0，结果为0，任意 1，结果为 1</td>
 <td align="left">data|0x01： 对数据某一位置为1</td>
 </tr>
 <tr>
-<td align="center">~</td>
-<td align="left">两数为 异，结果为 1</td>
+<td align="center"><strong>非</strong></td>
+<td align="center">!</td>
+<td align="left">!1&#x3D;0；!0&#x3D;1</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>异或</strong></td>
+<td align="center">^</td>
+<td align="left">不同为1，相同为0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center"><strong>同或</strong></td>
+<td align="center"><strong>⊙</strong></td>
+<td align="left">相同为1，不同为0</td>
 <td align="left"></td>
 </tr>
 </tbody></table>
+<p>Tips：在程序中，一般没有<strong>同或运算符：可以用两个数的异或结果再次异或1</strong>，即可得到两个数的同或结果。</p>
+<p>1010 ^ 1110 &#x3D; 0100 ^ 1111 &#x3D; 1011</p>
 <h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><p>使用<code>与、或、非</code>运算可以很大程度上简化代码</p>
 <h2 id="清零"><a href="#清零" class="headerlink" title="清零"></a>清零</h2><blockquote>
 <p>两数同为1，&amp;的结果才为1，因此<strong>任何一个数<code>&amp;</code>0结果为0</strong></p>
