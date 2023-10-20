@@ -1,0 +1,167 @@
+C51 COMPILER V9.54   MAIN                                                                  10/20/2023 16:43:46 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_C51v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\m
+                    -ain.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          unsigned char KeyNumber;
+   4          
+   5          
+   6          unsigned char Key_ReturnNumber;
+   7          unsigned char Nixie_Buf[9] = {0, 10, 10, 10, 10, 10, 10, 10, 10};
+   8          unsigned char NixieTable[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00};
+   9          
+  10          unsigned char Key_GetState();
+  11          void Timer_Key(void);
+  12          unsigned char Key(void);
+  13          
+  14          void Nixie(unsigned char Location, Number);
+  15          void Nixie_Loop(void);
+  16          void Nixie_SetBuf(unsigned char Location, Number);
+  17          
+  18          void Timer_Init()
+  19          {
+  20   1              TMOD &= 0xF0;           //设置定时器模式
+  21   1              TMOD |= 0x01;           //设置定时器模式
+  22   1      //      TH0 = 64535/256;
+  23   1      //      TL0 = 64535%256;
+  24   1              TL0 = 0x18;             //设置定时初值
+  25   1              TH0 = 0xFC;             //设置定时初值
+  26   1              TF0 = 0;                //清除TF0标志
+  27   1              TR0 = 1;                //定时器0开始计时
+  28   1              ET0 = 1;
+  29   1              EA = 1;
+  30   1              PT0 = 0;
+  31   1      }
+  32          
+  33          
+  34          void main(void)
+  35          {
+  36   1              Timer_Init();
+  37   1              while(1)
+  38   1              {
+  39   2                      KeyNumber = Key();
+  40   2                      if (KeyNumber) Nixie_SetBuf(1, KeyNumber);
+  41   2              }
+  42   1      }
+  43          
+  44          void Timer_Routine() interrupt 1
+  45          {
+  46   1              static unsigned int TimerKeyCount,TimerNixieCount;
+  47   1              
+  48   1              TL0 = 0x18;             //设置定时初值
+  49   1              TH0 = 0xFC;             //设置定时初值
+  50   1              TimerKeyCount++;        
+  51   1              TimerNixieCount++;      
+  52   1              
+  53   1              if(TimerKeyCount>=20)
+  54   1              {
+C51 COMPILER V9.54   MAIN                                                                  10/20/2023 16:43:46 PAGE 2   
+
+  55   2                      Timer_Key();
+  56   2                      TimerKeyCount=0;                
+  57   2              }
+  58   1              
+  59   1              if(TimerNixieCount>=2)
+  60   1              {
+  61   2                      Nixie_Loop();
+  62   2                      TimerNixieCount=0;
+  63   2              }
+  64   1      }
+  65          
+  66          unsigned char Key(void)
+  67          {
+  68   1              unsigned char tmp;
+  69   1              tmp = Key_ReturnNumber;
+  70   1              Key_ReturnNumber = 0;
+  71   1              return tmp;
+  72   1      }
+  73          
+  74          void Timer_Key(void)
+  75          {
+  76   1              static unsigned char NowState, LastState;
+  77   1              LastState = NowState;
+  78   1              NowState = Key_GetState();
+  79   1              
+  80   1              if (LastState == 1 && NowState == 0)
+  81   1              {
+  82   2                      Key_ReturnNumber = 1;
+  83   2              }
+  84   1              if (LastState == 2 && NowState == 0)
+  85   1              {
+  86   2                      Key_ReturnNumber = 2;
+  87   2              }
+  88   1              if (LastState == 3 && NowState == 0)
+  89   1              {
+  90   2                      Key_ReturnNumber = 3;
+  91   2              }
+  92   1              if (LastState == 4 && NowState == 0)
+  93   1              {
+  94   2                      Key_ReturnNumber = 4;
+  95   2              }
+  96   1      }
+  97          
+  98          unsigned char Key_GetState()
+  99          {
+ 100   1              unsigned char key=0;
+ 101   1              
+ 102   1              if(P3_1 == 0){key = 1;}
+ 103   1              if(P3_0 == 0){key = 2;}
+ 104   1              if(P3_2 == 0){key = 3;}
+ 105   1              if(P3_3 == 0){key = 4;}
+ 106   1              
+ 107   1              return key;
+ 108   1      }
+ 109          
+ 110          
+ 111          
+ 112          void Nixie(unsigned char Location, Number)
+ 113          {
+ 114   1              P0 = 0x00;
+ 115   1              switch(Location){
+ 116   2                      case 1:P2_4 = 1;P2_3 = 1;P2_2 = 1;break;
+C51 COMPILER V9.54   MAIN                                                                  10/20/2023 16:43:46 PAGE 3   
+
+ 117   2                      case 2:P2_4 = 1;P2_3 = 1;P2_2 = 0;break;
+ 118   2                      case 3:P2_4 = 1;P2_3 = 0;P2_2 = 1;break;
+ 119   2                      case 4:P2_4 = 1;P2_3 = 0;P2_2 = 0;break;
+ 120   2                      case 5:P2_4 = 0;P2_3 = 1;P2_2 = 1;break;
+ 121   2                      case 6:P2_4 = 0;P2_3 = 1;P2_2 = 0;break;
+ 122   2                      case 7:P2_4 = 0;P2_3 = 0;P2_2 = 1;break;
+ 123   2                      case 8:P2_4 = 0;P2_3 = 0;P2_2 = 0;break;
+ 124   2              }
+ 125   1              P0 = NixieTable[Number];
+ 126   1      }
+ 127          
+ 128          void Nixie_Loop(void)
+ 129          {
+ 130   1              static unsigned char i;
+ 131   1              Nixie(i, Nixie_Buf[i]);
+ 132   1              i++;
+ 133   1              if(i>=9) i=1;
+ 134   1      }
+ 135          
+ 136          void Nixie_SetBuf(unsigned char Location, Number)
+ 137          {
+ 138   1              Nixie_Buf[Location] = Number;
+ 139   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    386    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     29    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
