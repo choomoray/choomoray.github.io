@@ -5,12 +5,12 @@ https://choomoray.github.io/diary/index.html
 https://choomoray.github.io/tags/index.html
 https://choomoray.github.io/categories/index.html
 https://choomoray.github.io/
-https://choomoray.github.io/tags/Tips/
 https://choomoray.github.io/tags/51/
 https://choomoray.github.io/tags/STC89C52RC/
 https://choomoray.github.io/tags/AT24C02/
 https://choomoray.github.io/tags/I2C/
 https://choomoray.github.io/tags/DS1302/
+https://choomoray.github.io/tags/Tips/
 https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://choomoray.github.io/tags/Blog/

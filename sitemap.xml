@@ -65,13 +65,6 @@
 
   
   <url>
-    <loc>https://choomoray.github.io/tags/Tips/</loc>
-    <lastmod>2023-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://choomoray.github.io/tags/51/</loc>
     <lastmod>2023-10-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,6 +94,13 @@
   
   <url>
     <loc>https://choomoray.github.io/tags/DS1302/</loc>
+    <lastmod>2023-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/Tips/</loc>
     <lastmod>2023-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
