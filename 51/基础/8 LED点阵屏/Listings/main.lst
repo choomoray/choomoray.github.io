@@ -1,0 +1,62 @@
+C51 COMPILER V9.54   MAIN                                                                  09/05/2023 17:00:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_C51v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\m
+                    -ain.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          sbit _RCLK = P3^5;
+   4          sbit _SRCLK = P3^6;
+   5          sbit _SER = P3^4;
+   6          
+   7          void _74HC595_WriteByte(unsigned char Byte){
+   8   1              unsigned char i;
+   9   1              for(i = 0; i < 8; i++){
+  10   2                      _SER = Byte&(0x80>>i);  // 非0即1
+  11   2                      // _SRCLK在低电平才会进行操作，所以先赋高再赋低
+  12   2                      _SRCLK = 1;
+  13   2                      _SRCLK = 0;
+  14   2              }
+  15   1              // 执行完for循环后，数据就已经全部放入移位寄存器中了
+  16   1              _RCLK = 1;
+  17   1              _RCLK = 0;      // 把数据8位数据移到右边输出
+  18   1      //      P2 = ~Byte;
+  19   1              
+  20   1      }
+  21          
+  22          void MatrixLED_ShowColumn(unsigned char Column, Data)
+  23          {
+  24   1              _74HC595_WriteByte(Data);
+  25   1              P0 = ~(0x80>>Column);
+  26   1      }
+  27          
+  28          void main(){
+  29   1              _SRCLK = 0; //单片机启动时，移位寄存器所有的口都是高电平
+  30   1              _SER = 0;       //先赋值低电平可以方便后面操作
+  31   1              
+  32   1      //      _74HC595_WriteByte(0xf0);
+  33   1              MatrixLED_ShowColumn(0, 0x84);
+  34   1              
+  35   1              while(1){
+  36   2      //              MatrixLED_ShowColumn(0, 0x84);
+  37   2              }
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     84    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

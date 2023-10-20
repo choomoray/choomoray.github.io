@@ -1,0 +1,105 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/05/2023  17:00:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_C51V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Project PRINT (.\Listings\Project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\KEIL_C51V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\Project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002DH     UNIT         ?PR?__74HC595_WRITEBYTE?MAIN
+            CODE    0030H     0018H     UNIT         ?PR?_MATRIXLED_SHOWCOLUMN?MAIN
+            CODE    0048H     000FH     UNIT         ?PR?MAIN?MAIN
+            CODE    0057H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_MATRIXLED_SHOWCOLUMN?MAIN
+
+?PR?_MATRIXLED_SHOWCOLUMN?MAIN
+  +--> ?PR?__74HC595_WRITEBYTE?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0003H         PUBLIC        __74HC595_WriteByte
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2023  17:00:59  PAGE 2
+
+
+  B:00B0H.5       PUBLIC        _RCLK
+  C:0048H         PUBLIC        main
+  C:0030H         PUBLIC        _MatrixLED_ShowColumn
+  B:00B0H.4       PUBLIC        _SER
+  B:00B0H.6       PUBLIC        _SRCLK
+  -------         PROC          __74HC595_WRITEBYTE
+  D:0005H         SYMBOL        Byte
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         7
+  C:0005H         LINE#         9
+  C:0007H         LINE#         10
+  C:0023H         LINE#         12
+  C:0025H         LINE#         13
+  C:0027H         LINE#         14
+  C:002BH         LINE#         16
+  C:002DH         LINE#         17
+  C:002FH         LINE#         20
+  -------         ENDPROC       __74HC595_WRITEBYTE
+  -------         PROC          _MATRIXLED_SHOWCOLUMN
+  D:0002H         SYMBOL        Column
+  D:0004H         SYMBOL        Data
+  C:0030H         LINE#         22
+  C:0032H         LINE#         23
+  C:0032H         LINE#         24
+  C:0037H         LINE#         25
+  C:0047H         LINE#         26
+  -------         ENDPROC       _MATRIXLED_SHOWCOLUMN
+  -------         PROC          MAIN
+  C:0048H         LINE#         28
+  C:0048H         LINE#         29
+  C:004AH         LINE#         30
+  C:004CH         LINE#         33
+  C:0055H         LINE#         35
+  C:0055H         LINE#         37
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=9.0 xdata=0 code=99
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

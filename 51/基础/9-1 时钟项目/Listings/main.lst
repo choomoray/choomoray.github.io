@@ -1,0 +1,92 @@
+C51 COMPILER V9.54   MAIN                                                                  09/07/2023 08:48:54 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_C51v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\m
+                    -ain.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "include.h"
+   3          #include "LCD1602.h"
+   4          #include "Delay.h"
+   5          #incldue "MatrixKey.h"
+*** WARNING C315 IN LINE 5 OF main.c: unknown #directive 'incldue'
+   6          #include "DS1302.h"
+   7          #include "Buzzer.h"
+   8          
+   9          unsigned char Bell;
+  10          
+  11          void Timer0Init(void)           //1毫秒@11.0592MHz
+  12          {
+  13   1      //      AUXR |= 0x80;           //定时器时钟1T模式
+  14   1              TMOD &= 0xF0;           //设置定时器模式
+  15   1              TL0 = 0xCD;             //设置定时初值
+  16   1              TH0 = 0xD4;             //设置定时初值
+  17   1              TF0 = 0;                //清除TF0标志
+  18   1              TR0 = 1;                //定时器0开始计时
+  19   1              
+  20   1              ET0 = 1;
+  21   1              EA = 1;
+  22   1              PT0 = 0;
+  23   1      }
+  24          
+  25          
+  26          
+  27          void main()
+  28          {
+  29   1              unsigned char key, Data;
+  30   1              
+  31   1              // 先初始化LCD显示屏，打印不变的数据
+  32   1              LCD_Init();
+  33   1              DS1302_Init();
+  34   1              Timer0Init();
+  35   1              LCD_ShowString(1, 1, "  -  -");
+  36   1              LCD_ShowString(2, 1, "  :  :");
+  37   1              Bell = 1;
+  38   1              while(1)
+  39   1              {
+  40   2                      DS1302_ReadTime();//读取时间
+  41   2                      LCD_ShowNum(1,1,DS1302_Time[0],2);//显示年
+  42   2                      LCD_ShowNum(1,4,DS1302_Time[1],2);//显示月
+  43   2                      LCD_ShowNum(1,7,DS1302_Time[2],2);//显示日
+  44   2                      LCD_ShowNum(2,1,DS1302_Time[3],2);//显示时
+  45   2                      LCD_ShowNum(2,4,DS1302_Time[4],2);//显示分
+  46   2                      LCD_ShowNum(2,7,DS1302_Time[5],2);//显示秒
+  47   2                      
+  48   2              }
+  49   1      }
+*** WARNING C280 IN LINE 29 OF main.c: 'key': unreferenced local variable
+*** WARNING C280 IN LINE 29 OF main.c: 'Data': unreferenced local variable
+  50          
+  51          void Timer0_Routine() interrupt 1
+C51 COMPILER V9.54   MAIN                                                                  09/07/2023 08:48:54 PAGE 2   
+
+  52          {
+  53   1              static unsigned char Timer0_Count, Bell_Count;
+  54   1              TL0 = 0xCD;             //设置定时初值
+  55   1              TH0 = 0xD4;             //设置定时初值
+  56   1              Timer0_Count++;
+  57   1              if (Timer0_Count > 20)
+  58   1              {
+  59   2                      Timer0_Count = 0;
+  60   2              }
+  61   1              
+  62   1      }
+*** WARNING C280 IN LINE 53 OF main.c: 'Bell_Count': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    192    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)
