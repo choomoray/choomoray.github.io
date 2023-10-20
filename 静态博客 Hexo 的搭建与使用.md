@@ -9,7 +9,6 @@ tags:
   - Hexo
   - NodeJS
   - Git
-  - Tips
 categories: 
   - 笔记
 cover: ../images/2023/静态博客Hexo安装使用教程/封面.webp
@@ -175,7 +174,7 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 
 
-# Hexo 主题 & 美化
+# Hexo 主题 & 美化（待完成......）
 
 在 [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 下载好压缩包，解压到 Theme 文件夹，然后在 `_config.yml` 里把默认的 Theme 替换成需要修改的主题文件夹名就大功告成了！
 
@@ -301,11 +300,17 @@ cover: https://cdn.pixabay.com/photo/2023/09/07/14/26/cat-8239223_1280.png
 
 ### 代码块
 
-> 主题提供了几种代码块可供选择，修改关键词 `highlight_theme`
->
-> 还包括代码块的复制（ `highlight_copy` ）、展开（ `highlight_shrink` ）、换行（`code_word_wrap`  ）以及高度限制（ `highlight_height_limit` ）
+主题提供了几种代码块可供选择，修改关键词 `highlight_theme`
 
+还包括代码块的复制（ `highlight_copy` ）、展开（ `highlight_shrink` ）、换行（`code_word_wrap`  ）以及高度限制（ `highlight_height_limit` ）
 
+#### 折叠
+
+修改`主题配置文件`中代码块的高度限制（默认为false，直接填入想要的高度即可）：
+
+```yaml
+highlight_height_limit: 200 # unit: px
+```
 
 
 
@@ -351,6 +356,8 @@ local_search:
 
 
 ## <span id='jump_文章加密'>文章加密</span>
+
+> 静态博客文章加密典型的防君子不防小人，程序只是卡在了调用那里，后台该能看到的还是可以看到的！
 
 文章加密同样需要依赖支持：
 
