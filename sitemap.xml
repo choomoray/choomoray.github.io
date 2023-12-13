@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://choomoray.github.io/diary/index.html</loc>
+    
+    <lastmod>2023-12-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://choomoray.github.io/2023/12/27/%E4%B8%8E%E6%88%96%E9%9D%9E/</loc>
     
     <lastmod>2023-12-04</lastmod>
@@ -38,15 +47,6 @@
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/diary/index.html</loc>
-    
-    <lastmod>2023-10-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://choomoray.github.io/categories/index.html</loc>
     
     <lastmod>2023-10-20</lastmod>
@@ -67,92 +67,92 @@
 
   <url>
     <loc>https://choomoray.github.io/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://choomoray.github.io/tags/Tips/</loc>
-    <lastmod>2023-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://choomoray.github.io/tags/51/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/STC89C52RC/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/AT24C02/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/I2C/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/DS1302/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/Tips/</loc>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/Blog/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/Hexo/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/NodeJS/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/Git/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -161,14 +161,14 @@
   
   <url>
     <loc>https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-12-04</lastmod>
+    <lastmod>2023-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
