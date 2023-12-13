@@ -6,7 +6,7 @@
   <link href="https://choomoray.github.io/atom.xml" rel="self"/>
   
   <link href="https://choomoray.github.io/"/>
-  <updated>2023-12-13T06:59:52.822Z</updated>
+  <updated>2023-12-13T07:03:32.993Z</updated>
   <id>https://choomoray.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://choomoray.github.io/2023/12/27/%E4%B8%8E%E6%88%96%E9%9D%9E/"/>
     <id>https://choomoray.github.io/2023/12/27/%E4%B8%8E%E6%88%96%E9%9D%9E/</id>
     <published>2023-12-26T16:00:00.000Z</published>
-    <updated>2023-12-13T06:59:52.822Z</updated>
+    <updated>2023-12-13T07:03:32.993Z</updated>
     
     <content type="html"><![CDATA[<h1 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h1><table><thead><tr><th align="center"></th><th align="center"></th><th align="left">运算</th><th align="left">用法</th></tr></thead><tbody><tr><td align="center"><strong>与</strong></td><td align="center">&amp;</td><td align="left">同为1，结果为 1，任意0，结果为0</td><td align="left">data&amp;0x01：验证数据某一位是否为1</td></tr><tr><td align="center"><strong>或</strong></td><td align="center">|</td><td align="left">同为0，结果为0，任意 1，结果为 1</td><td align="left">data|0x01： 对数据某一位置为1</td></tr><tr><td align="center"><strong>非</strong></td><td align="center">!</td><td align="left">!1&#x3D;0；!0&#x3D;1</td><td align="left"></td></tr><tr><td align="center"><strong>异或</strong></td><td align="center">^</td><td align="left">不同为1，相同为0</td><td align="left"></td></tr><tr><td align="center"><strong>同或</strong></td><td align="center"><strong>⊙</strong></td><td align="left">相同为1，不同为0</td><td align="left"></td></tr></tbody></table><p>Tips：在程序中，一般没有<strong>同或运算符：可以用两个数的异或结果再次异或1</strong>，即可得到两个数的同或结果。</p><p>1010 ^ 1110 &#x3D; 0100 ^ 1111 &#x3D; 1011</p><h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><p>使用<code>与、或、非</code>运算可以很大程度上简化代码</p><h2 id="清零"><a href="#清零" class="headerlink" title="清零"></a>清零</h2><blockquote><p>两数同为1，&amp;的结果才为1，因此<strong>任何一个数<code>&amp;</code>0结果为0</strong></p><p>1011 1100 &amp; 0000 0000 &#x3D; 0000 0000</p></blockquote><h2 id="置一"><a href="#置一" class="headerlink" title="置一"></a>置一</h2><blockquote><p>两数中有1，|的结果便为1，因此可以</p><p>0000 0000 | 0000 0001 &#x3D; 0000 0001</p></blockquote><h1 id="扩展用法"><a href="#扩展用法" class="headerlink" title="扩展用法"></a>扩展用法</h1><p>在不同场景中根据场景需求可以灵活变通使用</p><h2 id="TMOD参数设置"><a href="#TMOD参数设置" class="headerlink" title="TMOD参数设置"></a>TMOD参数设置</h2><blockquote><p><code>&amp;</code>：<strong>低四位清零</strong>，高四位保持不变</p><p>1010 0011 &amp; 1111 0000 &#x3D; 1010 0000</p></blockquote><blockquote><p><code>|</code>：<strong>第一位置为1</strong>，高四位不变</p><p>1010 0011 | 0000 0001 &#x3D; 1010 0001</p></blockquote><hr>]]></content>
     
