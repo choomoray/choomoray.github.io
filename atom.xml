@@ -77,6 +77,37 @@
   </entry>
   
   <entry>
+    <title>photoshop快速上手</title>
+    <link href="https://choomoray.github.io/2023/12/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
+    <id>https://choomoray.github.io/2023/12/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</id>
+    <published>2023-12-14T00:40:47.000Z</published>
+    <updated>2023-12-14T01:10:58.094Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="图片去白底"><a href="#图片去白底" class="headerlink" title="图片去白底"></a>图片去白底</h3><ol><li>导入图片，并且把锁定取消。<img src="https://telegra.ph/file/7bfd7dff3a6697d2cc78f.png"></li><li>选择通道模式，挨个点选找到黑色覆盖范围最合适的通道，拷贝该通道。<img src="https://telegra.ph/file/7cc1b6c0e3df010979998.png"></li><li><code>CTRL + L</code>进入色阶，把最左边的三角向右拉，推出色阶模式后<code>CTRL + 左键</code>目标选中。<img src="https://telegra.ph/file/d549754e36538913a5b59.png"></li><li><code>CTRL + SHIFT + I</code>反选后<code>CTRL + J</code>得到去白底的图片。</li></ol><blockquote><p>注意：可能是版本问题，我的PS在第四步需要先得到去白底图片，然后再删掉再反选才能真正得到去白底的图片。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;图片去白底&quot;&gt;&lt;a href=&quot;#图片去白底&quot; class=&quot;headerlink&quot; title=&quot;图片去白底&quot;&gt;&lt;/a&gt;图片去白底&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;导入图片，并且把锁定取消。&lt;img src=&quot;https://telegra.ph/file/7bfd7</summary>
+      
+    
+    
+    
+    <category term="笔记" scheme="https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="学习" scheme="https://choomoray.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="PS" scheme="https://choomoray.github.io/tags/PS/"/>
+    
+    <category term="PhotoShop" scheme="https://choomoray.github.io/tags/PhotoShop/"/>
+    
+    <category term="去白底" scheme="https://choomoray.github.io/tags/%E5%8E%BB%E7%99%BD%E5%BA%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>静态博客 Hexo 的搭建与使用</title>
     <link href="https://choomoray.github.io/2023/12/13/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%20Hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <id>https://choomoray.github.io/2023/12/13/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%20Hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
