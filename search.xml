@@ -39,11 +39,11 @@
     
     
     <entry>
-      <title>photoshop快速上手</title>
+      <title>PhotoShop快速上手</title>
       <link href="/2023/12/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
       <url>/2023/12/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</url>
       
-        <content type="html"><![CDATA[<h3 id="图片去白底"><a href="#图片去白底" class="headerlink" title="图片去白底"></a>图片去白底</h3><ol><li>导入图片，并且把锁定取消。<img src="https://telegra.ph/file/7bfd7dff3a6697d2cc78f.png"></li><li>选择通道模式，挨个点选找到黑色覆盖范围最合适的通道，拷贝该通道。<img src="https://telegra.ph/file/7cc1b6c0e3df010979998.png"></li><li><code>CTRL + L</code>进入色阶，把最左边的三角向右拉，推出色阶模式后<code>CTRL + 左键</code>目标选中。<img src="https://telegra.ph/file/d549754e36538913a5b59.png"></li><li><code>CTRL + SHIFT + I</code>反选后<code>CTRL + J</code>得到去白底的图片。</li></ol><blockquote><p>注意：可能是版本问题，我的PS在第四步需要先得到去白底图片，然后再删掉再反选才能真正得到去白底的图片。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="实用功能"><a href="#实用功能" class="headerlink" title="实用功能"></a>实用功能</h1><hr><h2 id="图片去白底"><a href="#图片去白底" class="headerlink" title="图片去白底"></a>图片去白底</h2><ol><li>导入图片，并且把锁定取消。<img src="https://telegra.ph/file/7bfd7dff3a6697d2cc78f.png"></li><li>选择<code>通道模式</code>，挨个点选找到黑色覆盖范围最合适的通道，<strong>拷贝该通道</strong>。<img src="https://telegra.ph/file/7cc1b6c0e3df010979998.png"></li><li><code>CTRL + L</code>进入色阶，把最左边的三角向右拉，推出色阶模式后<code>CTRL + 左键</code>目标选中。<img src="https://telegra.ph/file/d549754e36538913a5b59.png"></li><li><code>CTRL + SHIFT + I</code>反选后<code>CTRL + J</code>得到去白底的图片。</li></ol><blockquote><p>注意：可能是版本问题，我的PS在第四步需要先得到去白底图片，然后再删掉再反选才能真正得到去白底的图片。</p></blockquote><hr>]]></content>
       
       
       <categories>
