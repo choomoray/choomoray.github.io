@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用Deepseek写一个Telegram BOT</title>
+      <link href="/2025/12/20/2025/%E4%BD%BF%E7%94%A8Deepseek%E5%86%99%E4%B8%80%E4%B8%AATelegram%20BOT/"/>
+      <url>/2025/12/20/2025/%E4%BD%BF%E7%94%A8Deepseek%E5%86%99%E4%B8%80%E4%B8%AATelegram%20BOT/</url>
+      
+        <content type="html"><![CDATA[<div class="note no-icon flat"><p><strong>本次AI编写程序在<code>VsCode</code>上使用<code>Cline</code>插件完成，AI使用<code>Deepseek-REASONER-V3</code></strong></p></div><p>在开始之前，首先也是最重要的是明确自己的需求，之后使用AI变成便如鱼得水</p><h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p>该项目主要实现一个telegram bot可以记录群组中的消息、管理群组、方便用户查询群组消息。</p><h1 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h1><h2 id="大概"><a href="#大概" class="headerlink" title="大概"></a>大概</h2><ol><li>记录群组中包含文字信息的视频或图片消息（下面统称为媒体消息）</li><li>管理群组：记录入群成员，在成员推出群组后将其拉黑</li><li>用户私聊机器人时，将匹配到文字的群组消息返回给用户</li><li>处理用户的一些请求：媒体合并、查询特定群组、频道的消息等</li></ol><h2 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h2><h3 id="群聊端"><a href="#群聊端" class="headerlink" title="群聊端"></a>群聊端</h3><h3 id="BOT端"><a href="#BOT端" class="headerlink" title="BOT端"></a>BOT端</h3><h3 id="用户端"><a href="#用户端" class="headerlink" title="用户端"></a>用户端</h3><ol><li>媒体合并：当用户输入<code>/MediaGroup</code>时，机器人进入等待，当用户输入<code>/EXIT</code>时或者机器人等待时间超过5分钟后，机器人按照用户发送媒体的顺序将这些媒体每10个合并为一个组，依次返回给用户。</li><li>指定群组：用户输入<code>/GroupChatSearch</code>时，机器人返回数据库中的所有不重复的群组ID给用户，用户输入<code>/GroupChatSearch</code>且后面跟着ID时，机器人判断ID是否存在，如果存在，用户后面所有的数据查询都将只局限于该ID所在的群组内进行查询，直到用户输入<code>/EXIT</code>退出该模式。</li><li>数据查询：根据用户输入的文字进行查询<ol><li>当用户输入的文字最后带有 -s、-a、-b、-c时，说明用户只想查询S、A、B、C等级的数据，其他的可以忽略。</li><li>当用户输入的文字最后带有s-、a-、b-、c-时，说明用户只想根据等级S&gt;A&gt;B&gt;C查询小于等于输入文字的数据。相反，当用户输入的文字最后带有s+、a+、b+、c+时，说明用户只想根据等级S&gt;A&gt;B&gt;C查询大于等于输入文字的数据。</li></ol></li><li>数据排序：<ol><li>如果随机排序是打开状态，将查询到的数据进行随机排序（用户可以输入<code>/setting openRandomSearch</code>或者<code>/setting closeRandomSearch</code>进行打开或关闭随机排序）</li><li>如果等级排序为打开状态，根据数据等级S&gt;A&gt;B&gt;C进行排序（用户可以输入<code>/setting openLevel</code>或者<code>/setting openLevel</code>进行打开或关闭等级排序）</li></ol></li><li>数据打印：<ol><li>打印的格式如下：数据以文本加编号的形式打印在文本框中，每页最多打印15个。在文本框的下面有着对应文本编号的编号按钮，每行最多5个编号按钮，最多三行一共15个编号按钮。在编号按钮的下面有两个按钮：上一页和下一页，当数据超过一页显示的上限，可以按上一页、下一页按钮查看上一页、下一页，文本框中的文本会刷新，下面的按钮也跟着刷新。</li></ol></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Deepseek </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Deepseek </tag>
+            
+            <tag> Telegram </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>静态博客Hexo的搭建与使用</title>
       <link href="/2025/12/17/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
       <url>/2025/12/17/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
