@@ -1,0 +1,51 @@
+/* 强制移除待办列表的小圆圈，最高优先级 */
+#article-container ul li,
+#article-container ol li {
+    list-style: none !important;
+}
+
+/* 专门针对待办列表的样式重置 */
+#article-container .task-list-item {
+    list-style-type: none !important;
+    margin-left: 0 !important;
+    padding-left: 24px !important;
+    position: relative;
+}
+
+/* 隐藏原生复选框，用自定义样式替代 */
+#article-container .task-list-item input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    margin: 0 !important;
+    width: 16px;
+    height: 16px;
+    opacity: 1 !important;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* 选中后的样式 */
+#article-container .task-list-item input[type="checkbox"]:checked {
+    background-color: #67c23a;
+    border-color: #67c23a;
+}
+
+#article-container .task-list-item input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* 修复列表整体缩进 */
+#article-container ul,
+#article-container ol {
+    padding-left: 20px !important;
+}
