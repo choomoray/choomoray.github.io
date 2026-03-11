@@ -2,20 +2,24 @@
 #article-container ul li {
     list-style-type: disc !important;
     padding-left: 8px !important;
+    /* 给普通列表项加 position，方便后续对齐参考 */
+    position: relative !important;
 }
 
 /* 2. 只对包含复选框的待办项，强制移除圆点 */
 #article-container li:has(input[type="checkbox"]) {
     list-style-type: none !important;
     margin-left: 0 !important;
-    padding-left: 28px !important;
+    /* 关键修改：把 padding-left 改成和普通 li 一致的 8px */
+    padding-left: 8px !important;
     position: relative !important;
 }
 
-/* 3. 待办复选框垂直居中 */
+/* 3. 待办复选框垂直居中，并且放在普通列表圆点的位置 */
 #article-container li input[type="checkbox"] {
     position: absolute !important;
-    left: 0 !important;
+    /* 关键修改：把 left 设为 -20px，让复选框替代原来的圆点位置 */
+    left: -20px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0 !important;
@@ -30,7 +34,7 @@
     cursor: pointer !important;
 }
 
-/* 4. 选中后的复选框样式 */
+/* 4. 选中后的复选框样式（保持不变） */
 #article-container li input[type="checkbox"]:checked {
     background-color: #67c23a !important;
     border-color: #67c23a !important;
