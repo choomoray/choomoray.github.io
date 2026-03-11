@@ -17,6 +17,11 @@ password:	mfyn
   class_desc: 
   link_list:
 
+    - name: WEEK 11
+      link: /2026/03/12/Diary/2026/WEEK%2011/
+      avatar: https://image.baidu.com/search/down?url=https://wx2.sinaimg.cn/mw690/008gjhpZly1ib3ibs66msj30ao0aojrp.jpg
+      descr: 03.09 - 03.15
+
     - name: WEEK 10
       link: /2026/03/05/Diary/2026/WEEK%2010/
       avatar: https://image.baidu.com/search/down?url=https://wx1.sinaimg.cn/mw690/008gjhpZly1iawft7uxc4j30u00u0tbf.jpg
