@@ -8,7 +8,8 @@ tags:
   - Markdown
   - HTML
 	
-cover: 	https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/mw690/009gHW3Oly1i8e01lyhouj30u00u00ty.jpg
+cover: 	封面.jpg
+top_img: false
 ---
 
 
@@ -43,7 +44,7 @@ cover: 	https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/mw690/009
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   ![配置环境变量](https://image.baidu.com/search/down?url=https://wx1.sinaimg.cn/mw690/009gHW3Oly1i8e01q9330j30jm06mmxq.jpg)
+   {% asset_img 配置环境变量.jpg 配置环境变量 %}
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -1928,7 +1929,7 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-![访问内容需要密码](https://image.baidu.com/search/down?url=https://wx1.sinaimg.cn/mw690/009gHW3Oly1i8gcsy9c9kj30zi0jsmy7.jpg)
+{% asset_img 访问内容需要密码.jpg 访问内容需要密码 %}
 
 ### 页面锚点
 
