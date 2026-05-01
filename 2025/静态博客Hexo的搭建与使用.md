@@ -8,7 +8,7 @@ tags:
   - Markdown
   - HTML
 	
-cover: 	封面.jpg
+cover: 	/images/2025/静态博客Hexo的搭建与使用/封面.jpg
 top_img: false
 ---
 
@@ -44,7 +44,7 @@ top_img: false
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   {% asset_img 配置环境变量.jpg 配置环境变量 %}
+   ![配置环境变量](/images/2025/静态博客Hexo的搭建与使用/配置环境变量.jpg)
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -1930,6 +1930,8 @@ password: 123456
 ```
 
 {% asset_img 访问内容需要密码.jpg 访问内容需要密码 %}
+
+![访问内容需要密码](/images/2025/静态博客Hexo的搭建与使用/访问内容需要密码.jpg)
 
 ### 页面锚点
 
