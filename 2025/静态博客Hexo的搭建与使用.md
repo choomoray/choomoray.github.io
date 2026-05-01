@@ -176,7 +176,7 @@ npm install	// 初始化成功了就不需要再执行这步了
 
 好用的 Markdown 编辑器！可直接前往[官网](https://typoraio.cn/)下载最新版安装。
 
-将 [node_inject.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/typora-activate/node_inject.exe)、[license-gen.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/typora-activate/license-gen.exe) 放到 Typora 的安装目录，使用Power Shell（管理员）依次运行，将生成的序列号填入 Typora 即可。
+将 [node_inject.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/node_inject.exe)、[license-gen.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/license-gen.exe) 放到 Typora 的安装目录，使用Power Shell（管理员）依次运行，将生成的序列号填入 Typora 即可。
 
 ```shell
 .\node_inhect.exe
