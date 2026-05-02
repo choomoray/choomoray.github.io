@@ -8,7 +8,7 @@ tags:
   - Markdown
   - HTML
 	
-cover: 	/images/2025/静态博客Hexo的搭建与使用/封面.jpg
+cover: 	https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.webp?raw=true
 top_img: false
 ---
 
@@ -44,7 +44,7 @@ top_img: false
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   ![配置环境变量](/images/2025/静态博客Hexo的搭建与使用/配置环境变量.jpg)
+   ![配置环境变量](https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.webp?raw=true)
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -176,7 +176,7 @@ npm install	// 初始化成功了就不需要再执行这步了
 
 好用的 Markdown 编辑器！可直接前往[官网](https://typoraio.cn/)下载最新版安装。
 
-将 [node_inject.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/node_inject.exe)、[license-gen.exe](https://github.com/choomoray/choomoray.github.io/blob/_posts/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/license-gen.exe) 放到 Typora 的安装目录，使用Power Shell（管理员）依次运行，将生成的序列号填入 Typora 即可。
+将 [node_inject.exe](https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/node_inject.exe)、[license-gen.exe](https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/license-gen.exe) 放到 Typora 的安装目录，使用Power Shell（管理员）依次运行，将生成的序列号填入 Typora 即可。
 
 ```shell
 .\node_inhect.exe
@@ -1929,9 +1929,7 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-{% asset_img 访问内容需要密码.jpg 访问内容需要密码 %}
-
-![访问内容需要密码](/images/2025/静态博客Hexo的搭建与使用/访问内容需要密码.jpg)
+![访问内容需要密码](https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/2025/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E8%AE%BF%E9%97%AE%E5%86%85%E5%AE%B9%E9%9C%80%E8%A6%81%E5%AF%86%E7%A0%81.webp?raw=true)
 
 ### 页面锚点
 
