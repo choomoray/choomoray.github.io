@@ -1,5 +1,5 @@
 ---
-title:		日志
+title:		记录生活，记录自己
 date:		2025-12-17
 update:		2025-12-18
 
@@ -8,9 +8,9 @@ top_img:	false
 password:	eeyn
 ---
 
-{% timeline <font size=7>记录生活，记录自己</font>,gray%}
+{% timeline <font size=7>2026</font>,gray%}
 
-<!-- timeline <font size=5>2026</font> -->
+<!-- timeline <font size=5></font> -->
 
 {% flink %}
 - class_name: 
