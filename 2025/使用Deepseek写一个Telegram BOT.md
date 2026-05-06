@@ -3,6 +3,7 @@ title:		使用Deepseek写一个Telegram BOT
 date:		2025-12-20
 
 tag:
+  - AI
   - Deepseek
   - Telegram
 
