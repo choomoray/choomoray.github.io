@@ -1,7 +1,7 @@
 ---
 title:		记录生活，记录自己
 date:		2025-12-17
-update:		2025-12-18
+updated:	2025-12-18
 
 hidden:		true
 top_img:	false

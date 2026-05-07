@@ -1,7 +1,7 @@
 ---
-title:	静态博客Hexo的搭建与使用
-date: 	2025-12-17
-
+title:		静态博客Hexo的搭建与使用
+date: 		2025-12-17
+updated:	2026-02-28
 tags:
   - Hexo
   - 主题美化
