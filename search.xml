@@ -8,7 +8,7 @@
       <link href="/2026/05/06/2026/Excel%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%BC%83%E5%9D%91/"/>
       <url>/2026/05/06/2026/Excel%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%BC%83%E5%9D%91/</url>
       
-        <content type="html"><![CDATA[<hr>]]></content>
+        <content type="html"><![CDATA[<hr><h2 id="快速填充"><a href="#快速填充" class="headerlink" title="快速填充"></a>快速填充</h2><h2 id="快速分析"><a href="#快速分析" class="headerlink" title="快速分析"></a>快速分析</h2><h2 id="数据录入"><a href="#数据录入" class="headerlink" title="数据录入"></a>数据录入</h2><h3 id="特殊录入"><a href="#特殊录入" class="headerlink" title="特殊录入"></a>特殊录入</h3><h4 id="日期、时间"><a href="#日期、时间" class="headerlink" title="日期、时间"></a>日期、时间</h4><p>ctrl + ; 快速录入今天的日期</p><p>ctrl + shift + ; 快速录入当前时间</p><p>&#x3D;NOW() 使用now函数可以快速输入当前日期+时间</p><h4 id="百分比"><a href="#百分比" class="headerlink" title="百分比"></a>百分比</h4><h4 id="分数"><a href="#分数" class="headerlink" title="分数"></a>分数</h4><h4 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h4><p>‘（冒号） + 数字 &#x3D; 文本格式输入</p><h4 id="原位填充"><a href="#原位填充" class="headerlink" title="原位填充"></a>原位填充</h4><p>ctrl + 回车</p><p>在多个选中的单元格内，一次性填入输入的内容</p><h3 id="网站爬取"><a href="#网站爬取" class="headerlink" title="网站爬取"></a>网站爬取</h3><h4 id="定时刷新"><a href="#定时刷新" class="headerlink" title="定时刷新"></a>定时刷新</h4><h4 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h4><h4 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h4><p>ctrl + T 选中区域转换为超级表（在表设计中转换为区域可以恢复）</p><h5 id="power-query"><a href="#power-query" class="headerlink" title="power query"></a>power query</h5><p>可以保存编辑步骤，自定义回溯</p>]]></content>
       
       
       
