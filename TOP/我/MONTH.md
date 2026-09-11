@@ -18,7 +18,7 @@ password:	eeyn
   link_list:
     - name: 五月
       link: /2026/05/04/Diary/2026/MONTH 05/
-      avatar: https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/Diary/2026%2005.webp?raw=true
+      avatar: https://github.com/choomoray/choomoray_blog_image_cloud/blob/main/Top/%E6%97%A5%E5%BF%97/2026%2005.webp?raw=true
       descr: 05.01 - 05.31
   
 
