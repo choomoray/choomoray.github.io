@@ -735,6 +735,227 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * 頂欄三級選單
+   * 依右側剩餘空間決定子欄展開方向，箭頭隨之移動
+   */
+  const nestedMenuFn = () => {
+    const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const VIEWPORT_MARGIN = 12
+    let currentSubMenu = null
+    let closeTimer = null
+    let resizeTimer = null
+
+    const getMenuRoot = () => document.getElementById('menus')
+    const getPanel = li => li.querySelector(':scope > .menus_item_grandchild')
+    const getToggle = li => li.querySelector(':scope > .menus_sub_toggle')
+
+    const setExpanded = (li, expanded) => {
+      const toggle = getToggle(li)
+      if (!toggle) return
+      toggle.setAttribute('aria-expanded', String(expanded))
+      toggle.setAttribute('aria-label', expanded ? '收起子菜单' : '展开子菜单')
+    }
+
+    const syncTopItemState = li => {
+      const topItem = li && li.closest('.menus_item')
+      if (!topItem) return
+      topItem.classList.toggle('submenu-open', !!topItem.querySelector('.menus_item_has_child.open'))
+      topItem.classList.toggle('submenu-left', !!topItem.querySelector('.menus_item_has_child.is-left'))
+    }
+
+    const closeSubMenu = li => {
+      if (!li) return
+      li.classList.remove('open', 'is-measuring')
+      setExpanded(li, false)
+      syncTopItemState(li)
+      if (currentSubMenu === li) currentSubMenu = null
+    }
+
+    const closeAllSubMenus = except => {
+      const root = getMenuRoot()
+      if (!root) {
+        currentSubMenu = null
+        return
+      }
+      root.querySelectorAll('.menus_item_has_child.open').forEach(li => {
+        if (li !== except) closeSubMenu(li)
+      })
+    }
+
+    const applySubMenuSide = li => {
+      const panel = getPanel(li)
+      if (!panel) return
+
+      li.classList.remove('is-left', 'is-right')
+      li.classList.add('is-measuring')
+
+      const panelWidth = panel.getBoundingClientRect().width
+      const rowRect = li.getBoundingClientRect()
+      const rightSpace = document.documentElement.clientWidth - rowRect.right - VIEWPORT_MARGIN
+      const leftSpace = rowRect.left - VIEWPORT_MARGIN
+      const openLeft = rightSpace < panelWidth && leftSpace > rightSpace
+
+      li.classList.add(openLeft ? 'is-left' : 'is-right')
+      li.classList.remove('is-measuring')
+      syncTopItemState(li)
+    }
+
+    const refreshSubMenuSides = () => {
+      const root = getMenuRoot()
+      if (!root || !root.offsetParent) return
+
+      const topItems = Array.from(root.querySelectorAll(':scope > .menus_items > .menus_item'))
+        .filter(item => item.querySelector('.menus_item_has_child'))
+      topItems.forEach(item => item.classList.add('submenu-measuring'))
+
+      root.querySelectorAll('.menus_item_has_child').forEach(li => {
+        if (!li.classList.contains('open')) applySubMenuSide(li)
+      })
+
+      topItems.forEach(item => item.classList.remove('submenu-measuring'))
+    }
+
+    const openSubMenu = li => {
+      if (!getPanel(li)) return
+
+      if (closeTimer) {
+        clearTimeout(closeTimer)
+        closeTimer = null
+      }
+
+      closeAllSubMenus(li)
+      applySubMenuSide(li)
+      li.classList.add('open')
+      syncTopItemState(li)
+      currentSubMenu = li
+      setExpanded(li, true)
+    }
+
+    const toggleSubMenu = li => {
+      if (!li) return
+      li.classList.contains('open') ? closeSubMenu(li) : openSubMenu(li)
+    }
+
+    const handleMouseOver = e => {
+      if (!hoverMedia.matches) return
+      const root = getMenuRoot()
+      if (!root || !root.contains(e.target)) return
+
+      if (closeTimer) {
+        clearTimeout(closeTimer)
+        closeTimer = null
+      }
+
+      const li = e.target.closest('.menus_item_has_child')
+      if (!li || !root.contains(li)) {
+        closeAllSubMenus()
+        return
+      }
+      if (li === currentSubMenu) return
+      if (currentSubMenu) closeSubMenu(currentSubMenu)
+      openSubMenu(li)
+    }
+
+    const handleMouseOut = e => {
+      if (!hoverMedia.matches) return
+      const root = getMenuRoot()
+      if (!root || !root.contains(e.target)) return
+
+      const li = e.target.closest('.menus_item_has_child')
+      if (!li) return
+      const related = e.relatedTarget
+      if (related && li.contains(related)) return
+
+      if (closeTimer) clearTimeout(closeTimer)
+      closeTimer = setTimeout(() => {
+        if (!li.matches(':hover')) closeSubMenu(li)
+        closeTimer = null
+      }, 260)
+    }
+
+    const toggleSidebarSubMenu = li => {
+      if (!li) return
+      const expanded = li.classList.toggle('open')
+      const toggle = getToggle(li)
+      if (!toggle) return
+      toggle.setAttribute('aria-expanded', String(expanded))
+      toggle.setAttribute('aria-label', expanded ? '收起子菜单' : '展开子菜单')
+    }
+
+    const handleClick = e => {
+      const sidebarToggle = e.target.closest('#sidebar-menus .menus_sub_toggle')
+      if (sidebarToggle) {
+        e.preventDefault()
+        e.stopPropagation()
+        toggleSidebarSubMenu(sidebarToggle.closest('.menus_item_has_child'))
+        return
+      }
+
+      const sidebarParentRow = e.target.closest('#sidebar-menus .menus_item_has_child > span.site-page.child')
+      if (sidebarParentRow) {
+        e.preventDefault()
+        toggleSidebarSubMenu(sidebarParentRow.parentElement)
+        return
+      }
+
+      const root = getMenuRoot()
+      if (!root) return
+
+      const toggle = e.target.closest('.menus_sub_toggle')
+      if (toggle && root.contains(toggle)) {
+        e.preventDefault()
+        e.stopPropagation()
+        toggleSubMenu(toggle.closest('.menus_item_has_child'))
+        return
+      }
+
+      const parentRow = e.target.closest('.menus_item_has_child > span.site-page.child')
+      if (parentRow && root.contains(parentRow)) {
+        e.preventDefault()
+        toggleSubMenu(parentRow.parentElement)
+        return
+      }
+
+      if (!e.target.closest('.menus_item_has_child')) closeAllSubMenus()
+    }
+
+    const handleKeyDown = e => {
+      if (e.key === 'Escape' && currentSubMenu) closeAllSubMenus()
+    }
+
+    const handleResize = () => {
+      closeAllSubMenus()
+      if (resizeTimer) clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(refreshSubMenuSides, 150)
+    }
+
+    const reset = () => {
+      if (closeTimer) {
+        clearTimeout(closeTimer)
+        closeTimer = null
+      }
+      if (resizeTimer) {
+        clearTimeout(resizeTimer)
+        resizeTimer = null
+      }
+      currentSubMenu = null
+    }
+
+    document.addEventListener('mouseover', handleMouseOver)
+    document.addEventListener('mouseout', handleMouseOut)
+    document.addEventListener('click', handleClick)
+    document.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('resize', handleResize)
+    document.addEventListener('pjax:send', reset)
+    document.addEventListener('pjax:complete', refreshSubMenuSides)
+
+    refreshSubMenuSides()
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refreshSubMenuSides)
+    }
+  }
+
+  /**
    * 手机端目录点击
    */
   const openMobileMenu = () => {
@@ -922,6 +1143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuMask && menuMask.addEventListener('click', () => { sidebarFn.close() })
 
     clickFnOfSubMenu()
+    nestedMenuFn()
     GLOBAL_CONFIG.islazyloadPlugin && lazyloadImg()
     GLOBAL_CONFIG.copyright !== undefined && addCopyright()
 
