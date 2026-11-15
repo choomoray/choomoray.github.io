@@ -8297,6 +8297,41 @@ blockquote.pullquote.right {
 .read-mode .container .note .note-icon {
   color: var(--font-color);
 }
+@media screen and (max-width: 900px) {
+  .read-mode #aside-content {
+    display: block !important;
+    margin-top: 0;
+  }
+  .read-mode #aside-content #card-toc {
+    display: block;
+  }
+  .read-mode #rightside {
+    display: block !important;
+    right: 30px;
+    bottom: 75px;
+    left: auto;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  .read-mode #rightside #rightside-config-hide {
+    display: none !important;
+  }
+  .read-mode #rightside #rightside-config-show > *:not(#mobile-toc-button) {
+    display: none !important;
+  }
+  .read-mode #rightside #mobile-toc-button {
+    display: block;
+  }
+  .read-mode #rightside:not(:has(#mobile-toc-button)) {
+    display: none !important;
+  }
+}
 .search-dialog {
   position: fixed;
   top: 10%;

@@ -671,10 +671,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const exitReadMode = () => {
         $body.classList.remove('read-mode')
+        document.getElementById('card-toc')?.classList.remove('open')
         newEle.remove()
         newEle.removeEventListener('click', exitReadMode)
       }
 
+      document.getElementById('card-toc')?.classList.remove('open')
       $body.classList.add('read-mode')
       newEle.type = 'button'
       newEle.className = 'exit-readmode'
