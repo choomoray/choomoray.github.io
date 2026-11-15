@@ -1624,6 +1624,15 @@ canvas:not(#ribbon-canvas),
     transform: translateY(-1px) scale(1.02) rotateZ(2deg);
   }
 }
+.nav-icon-svg {
+  width: 1.25em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+img[data-lazy-src][src$="bars-scale.svg"] {
+  object-fit: scale-down;
+  object-position: center;
+}
 :root {
   --global-font-size: 14px;
   --global-bg: #fff;
@@ -1734,6 +1743,14 @@ body {
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   scroll-behavior: smooth;
+}
+#article-container h1,
+#article-container h2,
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6 {
+  scroll-margin-top: 240px;
 }
 @-moz-document url-prefix() {
   * {
@@ -4805,8 +4822,12 @@ figure.highlight pre .javascript .function {
   border-bottom: 1px solid var(--light-grey);
   color: var(--text-highlight-color);
 }
-#post > #post-info .post-title .post-edit-link {
+#post > #post-info .post-title .post-edit-link,
+#post > #post-info .post-title .post-edit-local-link {
   float: right;
+}
+#post > #post-info .post-title .post-edit-local-link {
+  padding-left: 10px;
 }
 #post > #post-info #post-meta,
 #post > #post-info #post-meta a {
@@ -4825,7 +4846,8 @@ figure.highlight pre .javascript .function {
     font-size: 2.1em;
   }
 }
-#post-info .post-title .post-edit-link {
+#post-info .post-title .post-edit-link,
+#post-info .post-title .post-edit-local-link {
   padding-left: 10px;
 }
 #post-info #post-meta {
@@ -5159,6 +5181,11 @@ figure.highlight pre .javascript .function {
 #nav .menus_item_has_child > .menus_sub_toggle:hover {
   color: var(--theme-color);
 }
+#nav .menus_item_has_child.is-left > a.site-page.child,
+#nav .menus_item_has_child.is-left > span.site-page.child {
+  padding-right: 16px;
+  padding-left: 38px;
+}
 #nav .menus_item_has_child.is-left > .menus_sub_toggle {
   right: auto;
   left: 4px;
@@ -5212,8 +5239,6 @@ figure.highlight pre .javascript .function {
   margin: 0;
   padding: 0;
   width: max-content;
-  max-height: calc(100vh - 90px);
-  overflow-y: auto;
   list-style: none;
   background-color: var(--sidebar-bg);
   -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
@@ -5261,13 +5286,11 @@ figure.highlight pre .javascript .function {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-#nav .menus_item.submenu-left > .menus_item_child > li > a.site-page.child,
-#nav .menus_item.submenu-left > .menus_item_child > li > span.site-page.child {
+#nav .menus_item_child.panel-left > li > a.site-page.child,
+#nav .menus_item_grandchild.panel-left > li > a.site-page.child,
+#nav .menus_item_child.panel-left > li > span.site-page.child,
+#nav .menus_item_grandchild.panel-left > li > span.site-page.child {
   padding-left: 38px;
-}
-#nav .menus_item.submenu-left > .menus_item_child > li.menus_item_has_child > a.site-page.child,
-#nav .menus_item.submenu-left > .menus_item_child > li.menus_item_has_child > span.site-page.child {
-  padding-right: 16px;
 }
 #pagination .pagination {
   margin-top: 20px;
@@ -5845,6 +5868,9 @@ figure.highlight pre .javascript .function {
   -o-transform: translate(-58px, 0);
   -ms-transform: translate(-58px, 0);
   transform: translate(-58px, 0);
+}
+#rightside.at-top #go-up {
+  display: none;
 }
 #rightside #rightside-config-hide {
   height: 0;
@@ -8092,8 +8118,33 @@ blockquote.pullquote.right {
 .read-mode .exit-readmode:hover {
   background: var(--exit-btn-hover);
 }
-.read-mode #aside-content {
+.read-mode #aside-content .card-widget:not(#card-toc) {
   display: none;
+}
+.read-mode #aside-content #card-toc {
+  display: block;
+}
+.read-mode #aside-content #card-toc .toc-content .toc-link {
+  color: var(--font-color);
+}
+.read-mode #aside-content #card-toc .toc-content .toc-link:hover {
+  color: var(--text-highlight-color);
+}
+.read-mode #aside-content #card-toc .toc-content .toc-link.active {
+  background: rgba(128,128,128,0.16);
+  color: var(--text-highlight-color);
+  font-weight: 600;
+}
+.read-mode #aside-content #card-toc .toc-percentage {
+  color: var(--font-color);
+  opacity: 0.65;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+  filter: alpha(opacity=65);
+}
+@media screen and (max-width: 900px) {
+  .read-mode #aside-content {
+    display: none;
+  }
 }
 .read-mode #page-header.post-bg {
   background: none !important;

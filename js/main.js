@@ -434,19 +434,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollFn = () => {
     const $rightside = document.getElementById('rightside')
     const innerHeight = window.innerHeight + 56
-    let initTop = 0
+    let initTop = window.scrollY
     const $header = document.getElementById('page-header')
     const isChatBtn = typeof chatBtn !== 'undefined'
     const isShowPercent = GLOBAL_CONFIG.percent.rightside
+    // 文章頁右側按鈕常駐，只有「返回頂部」隨滾動出現
+    const keepRightside = GLOBAL_CONFIG_SITE.pageType === 'post'
+
+    const syncRightside = currentTop => {
+      $rightside.classList.toggle('at-top', currentTop <= 56)
+      if (currentTop > 56 || keepRightside) {
+        $rightside.classList.add('rightside-show')
+      } else {
+        $rightside.classList.remove('rightside-show')
+      }
+    }
 
     // 檢查文檔高度是否小於視窗高度
     const checkDocumentHeight = () => {
       if (document.body.scrollHeight <= innerHeight) {
-        $rightside.classList.add('rightside-show')
+        syncRightside(window.scrollY || 0)
         return true
       }
       return false
     }
+
+    syncRightside(window.scrollY || 0)
 
     // 如果文檔高度小於視窗高度,直接返回
     if (checkDocumentHeight()) return
@@ -461,11 +474,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let flag = ''
     const scrollTask = btf.throttle(() => {
       const currentTop = window.scrollY || document.documentElement.scrollTop
+      syncRightside(currentTop)
       const isDown = scrollDirection(currentTop)
       if (currentTop > 56) {
         if (flag === '') {
           $header.classList.add('nav-fixed')
-          $rightside.classList.add('rightside-show')
         }
 
         if (isDown) {
@@ -486,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentTop === 0) {
           $header.classList.remove('nav-fixed', 'nav-visible')
         }
-        $rightside.classList.remove('rightside-show')
+        syncRightside(currentTop)
       }
 
       isShowPercent && rightsideScrollPercent(currentTop)
@@ -521,7 +534,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!target) return
 
         e.preventDefault()
-        btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
+        if (typeof updateHeaderPositions === 'function') updateHeaderPositions()
+        const tocOffset = Number(GLOBAL_CONFIG.tocOffset) || 0
+        const destEle = document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))
+        if (!destEle) return
+        const destTop = Math.max(0, btf.getEleTop(destEle) - tocOffset)
+        window.scrollTo({ top: destTop, behavior: 'smooth' })
         if (window.innerWidth < 900) {
           $cardTocLayout.classList.remove('open')
         }
@@ -552,12 +570,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optimization: Cache header positions
     let headerList = []
+    let cachedDocHeight = 0
     const updateHeaderPositions = () => {
       headerList = Array.from($articleList).map(ele => ({
         ele,
         top: btf.getEleTop(ele),
         id: ele.id
       }))
+      cachedDocHeight = document.body.scrollHeight
+    }
+
+    // 版面高度變動（圖片載入、程式碼收合等）就重算，避免高亮錯位
+    const refreshHeaderPositionsIfNeeded = () => {
+      if (document.body.scrollHeight !== cachedDocHeight) updateHeaderPositions()
     }
 
     updateHeaderPositions()
@@ -566,12 +591,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const findHeadPosition = top => {
       if (top === 0) return false
 
+      const activeOffset = (Number(GLOBAL_CONFIG.tocOffset) || 0) > 0 ? Number(GLOBAL_CONFIG.tocOffset) + 8 : 80
       let currentId = ''
       let currentIndex = ''
 
       for (let i = 0; i < headerList.length; i++) {
         const item = headerList[i]
-        if (top > item.top - 80) {
+        if (top > item.top - activeOffset) {
           currentId = item.id ? '#' + encodeURI(item.id) : ''
           currentIndex = i
         } else {
@@ -607,6 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // main of scroll
     const tocScrollFn = btf.throttle(() => {
+      refreshHeaderPositionsIfNeeded()
       const currentTop = window.scrollY || document.documentElement.scrollTop
       if (isToc && GLOBAL_CONFIG.percent.toc) {
         $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
@@ -735,8 +762,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * 頂欄三級選單
-   * 依右側剩餘空間決定子欄展開方向，箭頭隨之移動
+   * 頂欄多層選單
+   * 層級不限，展開方向在開始前就決定好，使用過程中不再改變
    */
   const nestedMenuFn = () => {
     const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)')
@@ -760,7 +787,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const topItem = li && li.closest('.menus_item')
       if (!topItem) return
       topItem.classList.toggle('submenu-open', !!topItem.querySelector('.menus_item_has_child.open'))
-      topItem.classList.toggle('submenu-left', !!topItem.querySelector('.menus_item_has_child.is-left'))
+    }
+
+    // 取得某項的祖先鏈（含自身），由外到內
+    const getHostChain = li => {
+      const chain = []
+      let node = li
+      while (node) {
+        if (node.classList && node.classList.contains('menus_item_has_child')) chain.unshift(node)
+        const parent = node.parentElement
+        node = parent ? parent.closest('.menus_item_has_child') : null
+      }
+      return chain
     }
 
     const closeSubMenu = li => {
@@ -782,6 +820,31 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
 
+    // 該項全部展開後需要的總寬度（自身面板 + 最深的子孫面板）
+    const subtreeWidth = host => {
+      const panel = getPanel(host)
+      if (!panel) return 0
+
+      let childMax = 0
+      panel.querySelectorAll(':scope > li.menus_item_has_child').forEach(child => {
+        childMax = Math.max(childMax, subtreeWidth(child))
+      })
+
+      return panel.getBoundingClientRect().width + (childMax ? 8 + childMax : 0)
+    }
+
+    // 祖先鏈目前的展開方向（讓子欄繼續往外長，不要蓋住上層的欄）
+    const chainSide = host => {
+      let parent = host.parentElement ? host.parentElement.closest('.menus_item_has_child') : null
+      while (parent) {
+        if (parent.classList.contains('is-left')) return 'L'
+        if (parent.classList.contains('is-right')) return 'R'
+        parent = parent.parentElement ? parent.parentElement.closest('.menus_item_has_child') : null
+      }
+      return null
+    }
+
+    // 依剩餘空間決定展開方向：全部展開後右邊放得下就右，否則整欄放左
     const applySubMenuSide = li => {
       const panel = getPanel(li)
       if (!panel) return
@@ -789,30 +852,64 @@ document.addEventListener('DOMContentLoaded', () => {
       li.classList.remove('is-left', 'is-right')
       li.classList.add('is-measuring')
 
-      const panelWidth = panel.getBoundingClientRect().width
+      const needed = subtreeWidth(li)
       const rowRect = li.getBoundingClientRect()
+
+      li.classList.remove('is-measuring')
+      if (!needed) return
+
       const rightSpace = document.documentElement.clientWidth - rowRect.right - VIEWPORT_MARGIN
       const leftSpace = rowRect.left - VIEWPORT_MARGIN
-      const openLeft = rightSpace < panelWidth && leftSpace > rightSpace
+      const fitsRight = rightSpace >= needed
+      const fitsLeft = leftSpace >= needed
+      const preferred = chainSide(li)
+      let openLeft
+      if (preferred === 'L') {
+        openLeft = fitsLeft ? true : (fitsRight ? false : leftSpace >= rightSpace)
+      } else {
+        openLeft = fitsRight ? false : (fitsLeft ? true : leftSpace > rightSpace)
+      }
 
       li.classList.add(openLeft ? 'is-left' : 'is-right')
-      li.classList.remove('is-measuring')
       syncTopItemState(li)
     }
 
+    // 頁面載入 / 尺寸變化時一次算好所有層級的方向，使用時不再改動
     const refreshSubMenuSides = () => {
       const root = getMenuRoot()
       if (!root || !root.offsetParent) return
 
       const topItems = Array.from(root.querySelectorAll(':scope > .menus_items > .menus_item'))
         .filter(item => item.querySelector('.menus_item_has_child'))
-      topItems.forEach(item => item.classList.add('submenu-measuring'))
+      if (!topItems.length) return
 
-      root.querySelectorAll('.menus_item_has_child').forEach(li => {
-        if (!li.classList.contains('open')) applySubMenuSide(li)
-      })
+      const keepOpen = Array.from(root.querySelectorAll('.menus_item_has_child.open'))
+      const prevVisibility = root.style.visibility
 
-      topItems.forEach(item => item.classList.remove('submenu-measuring'))
+      try {
+        topItems.forEach(item => item.classList.add('submenu-measuring'))
+        root.style.visibility = 'hidden'
+        root.querySelectorAll('.menus_item_has_child').forEach(li => li.classList.add('open'))
+        root.querySelectorAll('.menus_item_has_child').forEach(li => applySubMenuSide(li))
+        root.querySelectorAll('.menus_item_has_child').forEach(li => applySubMenuSide(li))
+        root.querySelectorAll('.menus_item_has_child').forEach(li => {
+          if (!keepOpen.includes(li)) li.classList.remove('open')
+        })
+      } finally {
+        // 無論量測是否出錯，都要還原顯示狀態，避免選單整塊看不見
+        topItems.forEach(item => {
+          item.classList.remove('submenu-measuring')
+          syncTopItemState(item)
+        })
+        root.querySelectorAll('.menus_item_has_child.is-measuring').forEach(li => li.classList.remove('is-measuring'))
+        // 標記「面板內有往左開的子欄」，讓整欄文字左側對齊
+        root.querySelectorAll('.menus_item_child, .menus_item_grandchild').forEach(panel => {
+          const hasLeftRow = Array.from(panel.children).some(child => child.classList &&
+            child.classList.contains('menus_item_has_child') && child.classList.contains('is-left'))
+          panel.classList.toggle('panel-left', hasLeftRow)
+        })
+        root.style.visibility = prevVisibility
+      }
     }
 
     const openSubMenu = li => {
@@ -823,12 +920,21 @@ document.addEventListener('DOMContentLoaded', () => {
         closeTimer = null
       }
 
-      closeAllSubMenus(li)
-      applySubMenuSide(li)
-      li.classList.add('open')
-      syncTopItemState(li)
+      const chain = getHostChain(li)
+      const rootEl = getMenuRoot()
+      if (rootEl) {
+        // 只關閉不在這條鏈上的欄，已展開的不要重新加 class，避免展開動畫重播
+        rootEl.querySelectorAll('.menus_item_has_child.open').forEach(el => {
+          if (!chain.includes(el)) closeSubMenu(el)
+        })
+      }
+      chain.forEach(node => {
+        if (node.classList.contains('open')) return
+        node.classList.add('open')
+        setExpanded(node, true)
+        syncTopItemState(node)
+      })
       currentSubMenu = li
-      setExpanded(li, true)
     }
 
     const toggleSubMenu = li => {
@@ -851,8 +957,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeAllSubMenus()
         return
       }
-      if (li === currentSubMenu) return
-      if (currentSubMenu) closeSubMenu(currentSubMenu)
+      if (li === currentSubMenu && li.classList.contains('open')) return
       openSubMenu(li)
     }
 
@@ -923,7 +1028,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && currentSubMenu) closeAllSubMenus()
     }
 
-    const handleResize = () => {
+    const handleResize = e => {
       closeAllSubMenus()
       if (resizeTimer) clearTimeout(resizeTimer)
       resizeTimer = setTimeout(refreshSubMenuSides, 150)
@@ -1133,6 +1238,172 @@ document.addEventListener('DOMContentLoaded', () => {
     typeof InfiniteGrid === 'function' ? init() : btf.getScript(`${GLOBAL_CONFIG.infinitegrid.js}`).then(init)
   }
 
+  /**
+   * 首頁滾動位置：離開首頁時記住，回到首頁時可還原
+   */
+  const homeScrollSaver = () => {
+    if (GLOBAL_CONFIG_SITE.pageType !== 'home' || location.hash) return
+    try {
+      sessionStorage.setItem('btf-home-scroll', JSON.stringify({
+        y: Math.round(window.scrollY || document.documentElement.scrollTop),
+        path: location.pathname
+      }))
+    } catch (err) {
+      // 忽略隱私模式等寫入失敗
+    }
+  }
+
+  /**
+   * 首頁落點
+   * - 進入首頁：停在內容區（頂部橫幅保留，向上滾動可見）
+   * - 從文章返回：回到離開首頁時的滾動位置
+   */
+  const homeLandingFn = () => {
+    const cfg = GLOBAL_CONFIG.homeLanding
+    const pageType = GLOBAL_CONFIG_SITE.pageType
+    const pagePath = location.pathname
+
+    let prevType = null
+    try {
+      prevType = sessionStorage.getItem('btf-prev-page-type')
+      sessionStorage.setItem('btf-prev-page-type', pageType)
+    } catch (err) {
+      // 忽略
+    }
+
+    if (!cfg || !cfg.enable || pageType !== 'home' || location.hash) return
+
+    let savedTarget = null
+    if (cfg.rememberReturn && prevType === 'post') {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem('btf-home-scroll') || 'null')
+        if (saved && saved.path === pagePath) savedTarget = Number(saved.y) || 0
+      } catch (err) {
+        // 忽略
+      }
+    }
+
+    const scrollInstant = top => {
+      const html = document.documentElement
+      const body = document.body
+      const htmlBehavior = html.style.scrollBehavior
+      const bodyBehavior = body.style.scrollBehavior
+      html.style.scrollBehavior = 'auto'
+      body.style.scrollBehavior = 'auto'
+      window.scrollTo(0, Math.max(0, Math.round(top)))
+      html.style.scrollBehavior = htmlBehavior
+      body.style.scrollBehavior = bodyBehavior
+    }
+
+    const contentTop = () => {
+      const ele = document.getElementById('content-inner')
+      return ele ? ele.getBoundingClientRect().top + window.scrollY : 0
+    }
+
+    let userScrolled = false
+    const markUserScroll = () => { userScrolled = true }
+    ;['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(evt => {
+      window.addEventListener(evt, markUserScroll, { passive: true, once: true })
+    })
+
+    // 反覆校正幾次：Pjax 換頁後瀏覽器 / 主題可能又會把滾動歸零
+    const applyTarget = () => {
+      if (userScrolled) return
+      if (GLOBAL_CONFIG_SITE.pageType !== 'home' || location.pathname !== pagePath) return
+      scrollInstant(savedTarget === null ? contentTop() : savedTarget)
+    }
+
+    applyTarget()
+    requestAnimationFrame(applyTarget)
+    ;[80, 200, 400, 800, 1400].forEach(delay => setTimeout(applyTarget, delay))
+    window.addEventListener('load', applyTarget, { once: true })
+
+    btf.addEventListenerPjax(window, 'scroll', btf.throttle(homeScrollSaver, 300), { passive: true })
+  }
+
+  /**
+   * 文章「打開本地源文件」
+   * 優先呼叫本地小服務直接打開；不可用時退回複製路徑
+   */
+  const initLocalEditLink = () => {
+    const fallbackCopy = text => {
+      const input = document.createElement('textarea')
+      input.value = text
+      input.style.position = 'fixed'
+      input.style.top = '-1000px'
+      input.style.opacity = '0'
+      document.body.appendChild(input)
+      input.select()
+      try {
+        document.execCommand('copy')
+      } catch (err) {
+        // 忽略
+      }
+      input.remove()
+    }
+
+    const copyPath = text => {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text))
+      }
+      fallbackCopy(text)
+      return Promise.resolve()
+    }
+
+    const showTip = msg => {
+      try {
+        if (GLOBAL_CONFIG.Snackbar !== undefined && typeof btf.snackbarShow === 'function') {
+          btf.snackbarShow(msg, false, 3000)
+        }
+      } catch (err) {
+        // 提示失敗不影響主流程
+      }
+    }
+
+    document.addEventListener('click', e => {
+      const link = e.target instanceof Element ? e.target.closest('.post-edit-local-link') : null
+      if (!link) return
+
+      const mode = link.dataset.localMode || 'file'
+      const localPath = link.dataset.localPath || ''
+      const localHref = link.dataset.localHref || link.getAttribute('href') || ''
+      const bridge = link.dataset.localBridge || ''
+      const isFilePage = location.protocol === 'file:'
+
+      e.preventDefault()
+      e.stopPropagation()
+
+      // 直接打開本地 html 時，file:// 可以正常跳轉
+      if (mode === 'file' && isFilePage) {
+        window.location.href = localHref
+        return
+      }
+
+      if (mode === 'vscode') {
+        window.location.href = localHref
+        return
+      }
+
+      const copiedMsg = link.dataset.copiedMsg || localPath
+
+      if (bridge && localPath) {
+        fetch(`${bridge}?path=${encodeURIComponent(localPath)}`)
+          .then(res => {
+            if (!res.ok) throw new Error('local open failed')
+            showTip(link.dataset.openedMsg || copiedMsg)
+          })
+          .catch(() => {
+            copyPath(localPath)
+            showTip(copiedMsg)
+          })
+        return
+      }
+
+      copyPath(localPath)
+      showTip(copiedMsg)
+    }, true)
+  }
+
   const unRefreshFn = () => {
     window.addEventListener('resize', () => {
       adjustMenu(false)
@@ -1144,6 +1415,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clickFnOfSubMenu()
     nestedMenuFn()
+    initLocalEditLink()
+    document.addEventListener('pjax:send', homeScrollSaver)
+    window.addEventListener('pagehide', homeScrollSaver)
     GLOBAL_CONFIG.islazyloadPlugin && lazyloadImg()
     GLOBAL_CONFIG.copyright !== undefined && addCopyright()
 
@@ -1169,6 +1443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const refreshFn = () => {
     initAdjust()
     justifiedIndexPostUI()
+    homeLandingFn()
 
     if (GLOBAL_CONFIG_SITE.pageType === 'post') {
       addPostOutdateNotice()
